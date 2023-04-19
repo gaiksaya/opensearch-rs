@@ -4,8 +4,13 @@ lib = library(identifier: 'jenkins@rust', retriever: modernSCM([
 ]))
 
 standardReleasePipelineWithGenericTrigger(
-    overrideDockerImage: 'opensearchstaging/ci-runner:release-centos7-clients-v2',
+    overrideDockerImage: 'opensearchstaging/ci-runner:release-centos7-clients-v2.5',
     tokenIdCredential: 'jenkins-opensearch-rs-generic-webhook-token',
-    causeString: 'A tag was cut on opensearch-project/opensearch-rs repository causing this workflow to run') {
-        publishToCrates(repository: "$repository", tag: '', packageToPublish: 'opensearch')
+    causeString: 'A tag was cut on opensearch-project/opensearch-rs repository causing this workflow to run',
+    publishRelease: true) {
+        publishToCrates(
+            repository: "$repository",
+            tag: "$tag",
+            packageToPublish: 'opensearch'
+            )
     }
