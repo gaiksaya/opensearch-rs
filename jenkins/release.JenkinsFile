@@ -7,5 +7,5 @@ standardReleasePipelineWithGenericTrigger(
     overrideDockerImage: 'opensearchstaging/ci-runner:release-centos7-clients-v2',
     tokenIdCredential: 'jenkins-opensearch-rs-generic-webhook-token',
     causeString: 'A tag was cut on opensearch-project/opensearch-rs repository causing this workflow to run') {
-        publishToCrates(repository: "$repository", packageToPublish: 'opensearch')
+        publishToCrates(repository: "$repository", tag: '', packageToPublish: 'opensearch')
     }
