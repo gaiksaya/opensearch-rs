@@ -7,6 +7,5 @@ standardReleasePipelineWithGenericTrigger(
     overrideDockerImage: 'sayaligaikawad/clients:3.0',
     tokenIdCredential: 'jenkins-opensearch-rs-generic-webhook-token',
     causeString: 'A tag was cut on opensearch-project/opensearch-rs repository causing this workflow to run') {
-        sh 'ls -l'
         publishToCrates(repository: "$repository", tag: "$tag", packageToPublish: 'opensearch')
     }
