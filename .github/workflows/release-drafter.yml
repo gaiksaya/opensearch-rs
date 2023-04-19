@@ -24,7 +24,7 @@ jobs:
           approvers: ${{ steps.get_data.outputs.approvers }}
           minimum-approvals: 1
           issue-title: 'Release opensearch-rs ${{ steps.get_data.outputs.version }}'
-          issue-body: "Please approve or deny the release of opensearch-rs. **${{ steps.get_data.outputs.version }}** **TAG**: ${{ github.ref_name }}  **COMMIT**: ${{ github.sha }}"
+          issue-body: "Please approve or deny the release of opensearch-rs. <br> **${{ steps.get_data.outputs.version }}** <br> **TAG**: ${{ github.ref_name }} <br> **COMMIT**: ${{ github.sha }}"
           # exclude-workflow-initiator-as-approver: true
       - name: Release
         uses: softprops/action-gh-release@v1
